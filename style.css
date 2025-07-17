@@ -69,3 +69,6 @@ td {
   .dif{
     display: flex;
   }
+  .send{
+    width: 52px;
+  }
