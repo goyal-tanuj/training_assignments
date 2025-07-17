@@ -33,3 +33,10 @@
       padding: 15px;
       font-size: 0.9rem;
     }
+table{
+  border-collapse: collapse;
+}
+th, td {
+  border: 1px solid black; /* Adjust color and thickness */
+  padding: 8px;            /* Optional: spacing inside cells */
+}
