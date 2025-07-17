@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body><form action="/_">
+  <label for="date">Appointment Date</label>
+  <input type="date" id="date" name="date" />
+
+  <label for="time">Appointment Time</label>
+  <input type="time" id="time" name="time" />
+
+  <label for="first-name">First Name</label>
+  <input type="text" id="first-name" name="first-name" placeholder="First" />
+
+  <label for="last-name">Last Name</label>
+  <input type="text" id="last-name" name="last-name" placeholder="Last" />
+
+  <label>Gender</label>
+  <div class="gender-group">
+    <label><input type="radio" name="gender" value="male" /> Male</label>
+    <label><input type="radio" name="gender" value="female" /> Female</label>
+  </div>
+
+  <label for="phone">Phone</label>
+  <input type="tel" id="phone" name="phone" placeholder="###" />
+
+  <label for="city">City</label>
+  <input type="text" id="city" name="city" placeholder="City" />
+
+  <label for="state">State</label>
+  <input type="text" id="state" name="state" placeholder="State" />
+
+  <label for="query">Your Query</label>
+  <textarea id="query" name="query" rows="4"></textarea>
+ <label>Appointment Type</label>
+  <div class="checkbox-group">
+    Select which Appointment type(s) you require
+    <label><input type="checkbox" name="appt-type" value="cervix" /> Cervix Checkup</label>
+    <label><input type="checkbox" name="appt-type" value="heart" /> Heart Checkup</label>
+    <label><input type="checkbox" name="appt-type" value="eye" /> Eye Checkup</label>
+    <label><input type="checkbox" name="appt-type" value="hearing" /> Hearing Test</label>
+
+  </div>
+ 
+</form>
+    </body>
+</html>

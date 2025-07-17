@@ -1,42 +1,71 @@
 * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    body {
-      font-family: Arial, sans-serif;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 
-    header {
-      background-color: #4a90e2;
-      color: white;
-      padding: 20px;
-      text-align: center;
-      font-size: 1.8rem;
-      font-weight: bold;
-    }
+header {
+  background-color: #4a90e2;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
 
-    main {
-      flex: 1; /* take all remaining space */
-      padding: 20px;
-      background-color: #f0f0f0;
-    }
+main {
+  flex: 1; /* take all remaining space */
+  padding: 20px;
+  background-color: #f0f0f0;
+}
 
-    footer {
-      background-color: #333;
-      color: white;
-      text-align: center;
-      padding: 15px;
-      font-size: 0.9rem;
-    }
-table{
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  font-size: 0.9rem;
+}
+table {
   border-collapse: collapse;
 }
-th, td {
-  border: 1px solid black; /* Adjust color and thickness */
-  padding: 8px;            /* Optional: spacing inside cells */
+th,
+td {
+  border: 1px solid black; 
+  padding: 8px; 
 }
+  form {
+    display: grid;
+    grid-template-columns: 150px 1fr; 
+    gap: 15px 20px;
+    max-width: 600px;
+    margin: 20px auto;
+    font-family: Arial, sans-serif;
+    border: #4a90e2 2px solid;
+    padding: 10px;
+  }
+  .name-group {
+    display: flex;
+    gap: 10px;
+  }
+
+  .gender-group {
+    display: flex;
+    gap: 20px;
+  }
+
+  .checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .dif{
+    display: flex;
+  }
