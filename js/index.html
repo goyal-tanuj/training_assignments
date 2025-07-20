@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Employee CRUD</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Employee Management</h1>
+    <button id="addBtn">Add Employee</button>
+    <table id="employeeTable">
+      <thead>
+        <tr>
+          <th>ID <input type="text" id="filter-id" placeholder="Filter ID"/></th>
+          <th>Name <input type="text" id="filter-name" placeholder="Filter Name"/></th>
+          <th>Email <input type="text" id="filter-email" placeholder="Filter Email"/></th>
+          <th>Phone <input type="text" id="filter-phone" placeholder="Filter Phone"/></th>
+          <th>Role <input type="text" id="filter-role" placeholder="Filter Role"/></th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody"></tbody>
+    </table>
+
+    <div id="pagination"></div>
+    <div id="formContainer" class="hidden">
+      <h2 id="formTitle">Add Employee</h2>
+      <form id="employeeForm">
+        <input type="hidden" id="emp-id" />
+        <input type="text" id="emp-name" placeholder="Name" required maxlength="20" />
+        <input type="email" id="emp-email" placeholder="Email" required />
+        <input type="text" id="emp-phone" placeholder="Phone (10 digits)" maxlength="10" required />
+        <select id="emp-role" required>
+          <option value="">Select Role</option>
+          <option value="Admin">Admin</option>
+          <option value="Manager">Manager</option>
+          <option value="Employee">Employee</option>
+        </select>
+        <input type="text" id="emp-street" placeholder="Street Address" required />
+        <input type="text" id="emp-locality" placeholder="Locality (optional)" />
+        <select id="emp-country" required></select>
+        <select id="emp-state" required></select>
+        <select id="emp-city" required></select>
+        <input type="text" id="emp-zipcode" placeholder="ZipCode" maxlength="6" required />
+        <button type="submit">Save</button>
+        <button type="button" id="cancelBtn">Cancel</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
