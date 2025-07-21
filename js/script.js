@@ -19,125 +19,107 @@ document.addEventListener("DOMContentLoaded", () => {
   setupFilters();
 });
 
+
 function renderTable() {
   const tbody = document.getElementById("tableBody");
   tbody.innerHTML = "";
 
-  const startIndex = (currentPage - 1) * recordsPerPage;
-  const endIndex = startIndex + recordsPerPage;
-  const paginatedEmployees = employees.slice(startIndex, endIndex);
-
-  paginatedEmployees.forEach((emp, index) => {
-    const row = document.createElement("tr");
-    row.innerHTML = `
-      <td>${emp.id}</td>
-      <td>${emp.name}</td>
-      <td>${emp.email}</td>
-      <td>${emp.phone}</td>
-      <td>${emp.role}</td>
-      <td>
-        <button onclick="editEmployee(${employees.indexOf(emp)})">Edit</button>
-        <button onclick="deleteEmployee(${employees.indexOf(emp)})">Delete</button>
-      </td>`;
-    tbody.appendChild(row);
-  });
+  const paginated = employees.slice((currentPage - 1) * recordsPerPage, currentPage * recordsPerPage);
+  paginated.forEach(emp => tbody.appendChild(createRow(emp)));
 
   renderPagination();
 }
+
+function createRow(emp) {
+  const row = document.createElement("tr");
+  row.innerHTML = `
+    <td>${emp.id}</td>
+    <td>${emp.name}</td>
+    <td>${emp.email}</td>
+    <td>${emp.phone}</td>
+    <td>${emp.role}</td>
+    <td>
+      <button onclick="editEmployee(${employees.findIndex(e => e.id === emp.id)})">Edit</button>
+      <button onclick="deleteEmployee(${employees.findIndex(e => e.id === emp.id)})">Delete</button>
+    </td>`;
+  return row;
+}
+
 function renderPagination() {
   const pagination = document.getElementById("pagination");
   pagination.innerHTML = "";
 
   const pageCount = Math.ceil(employees.length / recordsPerPage);
-
   if (pageCount <= 1) return;
 
-  const prev = document.createElement("button");
-  prev.innerText = "Previous";
-  prev.disabled = currentPage === 1;
-  prev.onclick = () => {
-    currentPage--;
-    renderTable();
+  const navBtn = (label, disabled, onClick) => {
+    const btn = document.createElement("button");
+    btn.textContent = label;
+    btn.disabled = disabled;
+    btn.onclick = onClick;
+    return btn;
   };
-  pagination.appendChild(prev);
+
+  pagination.appendChild(navBtn("Previous", currentPage === 1, () => { currentPage--; renderTable(); }));
 
   for (let i = 1; i <= pageCount; i++) {
-    const pageBtn = document.createElement("button");
-    pageBtn.innerText = i;
-    if (i === currentPage) pageBtn.disabled = true;
-    pageBtn.onclick = () => {
-      currentPage = i;
-      renderTable();
-    };
-    pagination.appendChild(pageBtn);
+    pagination.appendChild(navBtn(i, i === currentPage, () => { currentPage = i; renderTable(); }));
   }
 
-  const next = document.createElement("button");
-  next.innerText = "Next";
-  next.disabled = currentPage === pageCount;
-  next.onclick = () => {
-    currentPage++;
-    renderTable();
-  };
-  pagination.appendChild(next);
+  pagination.appendChild(navBtn("Next", currentPage === pageCount, () => { currentPage++; renderTable(); }));
 }
 
-
 function setupForm() {
+  const form = document.getElementById("employeeForm");
   const countrySelect = document.getElementById("emp-country");
   const stateSelect = document.getElementById("emp-state");
   const citySelect = document.getElementById("emp-city");
 
-  // Populate country
-  Object.keys(countryData).forEach(country => {
-    const opt = new Option(country, country);
-    countrySelect.add(opt);
-  });
+  Object.keys(countryData).forEach(country =>
+    countrySelect.add(new Option(country, country))
+  );
 
   countrySelect.addEventListener("change", () => {
-    stateSelect.innerHTML = "<option value=''>Select State</option>";
-    citySelect.innerHTML = "<option value=''>Select City</option>";
-    if (countrySelect.value) {
-      Object.keys(countryData[countrySelect.value]).forEach(state => {
-        stateSelect.add(new Option(state, state));
-      });
-    }
+    updateOptions(stateSelect, Object.keys(countryData[countrySelect.value] || {}), "Select State");
+    updateOptions(citySelect, [], "Select City");
   });
 
   stateSelect.addEventListener("change", () => {
-    citySelect.innerHTML = "<option value=''>Select City</option>";
-    const cities = countryData[countrySelect.value][stateSelect.value] || [];
-    cities.forEach(city => {
-      citySelect.add(new Option(city, city));
-    });
+    const cities = countryData[countrySelect.value]?.[stateSelect.value] || [];
+    updateOptions(citySelect, cities, "Select City");
   });
 
-  document.getElementById("employeeForm").addEventListener("submit", saveEmployee);
-  document.getElementById("addBtn").addEventListener("click", () => showForm());
-  document.getElementById("cancelBtn").addEventListener("click", () => hideForm());
+  form.addEventListener("submit", saveEmployee);
+  document.getElementById("addBtn").onclick = () => showForm();
+  document.getElementById("cancelBtn").onclick = () => hideForm();
+}
+
+function updateOptions(select, options, placeholder) {
+  select.innerHTML = `<option value="">${placeholder}</option>`;
+  options.forEach(opt => select.add(new Option(opt, opt)));
 }
 
 function saveEmployee(e) {
   e.preventDefault();
+
   const emp = {
     id: document.getElementById("emp-id").value || Date.now(),
-    name: document.getElementById("emp-name").value.trim(),
-    email: document.getElementById("emp-email").value.trim(),
-    phone: document.getElementById("emp-phone").value.trim(),
-    role: document.getElementById("emp-role").value,
+    name: getVal("emp-name"),
+    email: getVal("emp-email"),
+    phone: getVal("emp-phone"),
+    role: getVal("emp-role"),
     address: {
-      street: document.getElementById("emp-street").value.trim(),
-      locality: document.getElementById("emp-locality").value.trim(),
-      country: document.getElementById("emp-country").value,
-      state: document.getElementById("emp-state").value,
-      city: document.getElementById("emp-city").value,
-      zip: document.getElementById("emp-zipcode").value.trim()
+      street: getVal("emp-street"),
+      locality: getVal("emp-locality"),
+      country: getVal("emp-country"),
+      state: getVal("emp-state"),
+      city: getVal("emp-city"),
+      zip: getVal("emp-zipcode"),
     }
   };
 
   const index = employees.findIndex(e => e.id == emp.id);
-  if (index > -1) employees[index] = emp;
-  else employees.push(emp);
+  index > -1 ? employees.splice(index, 1, emp) : employees.push(emp);
 
   localStorage.setItem("employees", JSON.stringify(employees));
   hideForm();
@@ -156,23 +138,34 @@ function editEmployee(index) {
   const emp = employees[index];
   showForm(true);
   document.getElementById("formTitle").innerText = "Edit Employee";
-  document.getElementById("emp-id").value = emp.id;
-  document.getElementById("emp-name").value = emp.name;
-  document.getElementById("emp-email").value = emp.email;
-  document.getElementById("emp-phone").value = emp.phone;
-  document.getElementById("emp-role").value = emp.role;
-  document.getElementById("emp-street").value = emp.address.street;
-  document.getElementById("emp-locality").value = emp.address.locality;
-  document.getElementById("emp-country").value = emp.address.country;
+
+  fillForm(emp);
+}
+
+function fillForm(emp) {
+  const set = (id, val) => document.getElementById(id).value = val;
+
+  set("emp-id", emp.id);
+  set("emp-name", emp.name);
+  set("emp-email", emp.email);
+  set("emp-phone", emp.phone);
+  set("emp-role", emp.role);
+  set("emp-street", emp.address.street);
+  set("emp-locality", emp.address.locality);
+  set("emp-country", emp.address.country);
+
   document.getElementById("emp-country").dispatchEvent(new Event('change'));
   setTimeout(() => {
-    document.getElementById("emp-state").value = emp.address.state;
+    set("emp-state", emp.address.state);
     document.getElementById("emp-state").dispatchEvent(new Event('change'));
-    setTimeout(() => {
-      document.getElementById("emp-city").value = emp.address.city;
-    }, 100);
+    setTimeout(() => set("emp-city", emp.address.city), 100);
   }, 100);
-  document.getElementById("emp-zipcode").value = emp.address.zip;
+
+  set("emp-zipcode", emp.address.zip);
+}
+
+function getVal(id) {
+  return document.getElementById(id).value.trim();
 }
 
 function showForm(edit = false) {
@@ -186,18 +179,16 @@ function hideForm() {
   document.getElementById("employeeForm").reset();
 }
 
+
 function setupFilters() {
-  const filters = ["id", "name", "email", "phone", "role"];
-  filters.forEach(field => {
+  const fields = ["id", "name", "email", "phone", "role"];
+  fields.forEach(field => {
     document.getElementById(`filter-${field}`).addEventListener("input", () => {
-      const values = filters.map(f => document.getElementById(`filter-${f}`).value.toLowerCase());
-      const rows = document.querySelectorAll("#tableBody tr");
-      rows.forEach((row, index) => {
-        const cells = Array.from(row.children);
-        const show = filters.every((f, i) => {
-          return cells[i].innerText.toLowerCase().includes(values[i]);
-        });
-        row.style.display = show ? "" : "none";
+      const values = fields.map(f => document.getElementById(`filter-${f}`).value.toLowerCase());
+      document.querySelectorAll("#tableBody tr").forEach(row => {
+        const cells = [...row.children];
+        const visible = fields.every((_, i) => cells[i].innerText.toLowerCase().includes(values[i]));
+        row.style.display = visible ? "" : "none";
       });
     });
   });
