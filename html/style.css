@@ -18,18 +18,8 @@ body {
 
 .hoverbody:hover {
   background-color: lightblue;
-}
-header {
-  background-color: #4a90e2;
-  color: white;
-  padding: 20px;
-  text-align: center;
-  font-size: 1.8rem;
-  font-weight: bold;
-}
-
+}/
 main {
-  padding: 20px;
   background-color: #f0f0f0;
   text-align: center;
   justify-content: center;
@@ -91,7 +81,7 @@ form {
 }
 .cards {
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: auto auto auto;
   grid-gap: 60px 60px;
   margin: 39px auto;
   width: fit-content;
