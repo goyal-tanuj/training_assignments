@@ -8,8 +8,9 @@ body {
   font-family: Arial, sans-serif;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-}
+  height: 100%;
+  margin: 0;
+  padding: 0;}
 
 .hoverbody {
   background-color: white;
@@ -18,7 +19,7 @@ body {
 
 .hoverbody:hover {
   background-color: lightblue;
-}/
+}
 main {
   background-color: #f0f0f0;
   text-align: center;
@@ -26,51 +27,21 @@ main {
 }
 
 footer {
-  background-color: #333;
-  color: white;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #101010;
+  color: #f5f7f5;
   text-align: center;
-  padding: 15px;
-  font-size: 0.9rem;
-}
-table {
-  border-collapse: collapse;
-}
-th,
-td {
-  border: 1px solid black;
-  padding: 8px;
-}
-form {
-  display: grid;
-  grid-template-columns: 150px 1fr;
-  gap: 15px 20px;
-  max-width: 600px;
-  margin: 20px auto;
-  font-family: Arial, sans-serif;
-  border: #4a90e2 2px solid;
-  padding: 10px;
-}
-.name-group {
-  display: flex;
-  gap: 10px;
+  padding: 12px 0;
+  font-weight: 600;
+  font-size: 14px;
+  border-top: 2px solid black;
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
 }
 
-.gender-group {
-  display: flex;
-  gap: 20px;
-}
-
-.checkbox-group {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.dif {
-  display: flex;
-}
-.send {
-  width: 52px;
-}
 .carousel-item img {
   height: 50vh;
   width: 100%;
