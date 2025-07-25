@@ -4,7 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Add Employee</title>
-  <link rel="stylesheet" href="add.css"/><link
+  <link rel="stylesheet" href="add.css"/>
+  <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
@@ -12,10 +13,11 @@
     />
 </head>
 <body>
+  <header>
   <nav class="navbar navbar-expand-lg bg-primary fixed-top" data-bs-theme="dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">
-  <h1>Employee Records</h1></a>
+  <h1 id="formTitle">Employee Records</h1></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -27,6 +29,8 @@
     </div>
   </div>
 </nav><br>
+</header>
+  <br>
   <form id="employeeForm" class="heighted">
     <input  type="hidden" id="emp-id" />
 
@@ -52,7 +56,7 @@
     <button type="submit">Save</button>
   </form>
 
-  <script src="add.js"></script>  <script
+  <script src="edit.js"></script><script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
     crossorigin="anonymous"

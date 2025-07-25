@@ -12,6 +12,35 @@ const countryData = {
 document.addEventListener("DOMContentLoaded", () => {
   setupForm();
 });
+const existingData = sessionStorage.getItem("editEmployee");
+if (existingData) {
+  const emp = JSON.parse(existingData);
+  sessionStorage.removeItem("editEmployee"); // Clear after loading
+
+  document.getElementById("formTitle").textContent = "Edit Employee";
+  document.getElementById("emp-id").value = emp.id;
+  document.getElementById("emp-name").value = emp.name;
+  document.getElementById("emp-email").value = emp.email;
+  document.getElementById("emp-phone").value = emp.phone;
+  document.getElementById("emp-role").value = emp.role;
+  document.getElementById("emp-street").value = emp.address.street;
+  document.getElementById("emp-locality").value = emp.address.locality;
+
+  // Set dropdowns after triggering change events
+  document.getElementById("emp-country").value = emp.address.country;
+  document.getElementById("emp-country").dispatchEvent(new Event("change"));
+
+  setTimeout(() => {
+    document.getElementById("emp-state").value = emp.address.state;
+    document.getElementById("emp-state").dispatchEvent(new Event("change"));
+
+    setTimeout(() => {
+      document.getElementById("emp-city").value = emp.address.city;
+    }, 50);
+  }, 50);
+
+  document.getElementById("emp-zipcode").value = emp.address.zip;
+}
 
 function setupForm() {
   const form = document.getElementById("employeeForm");
