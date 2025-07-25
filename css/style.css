@@ -1,0 +1,68 @@
+header{
+   height: 50px;
+    margin-bottom: 30px;
+    background-color: honeydew;
+    font-family: serif;
+    font-size: xx-large;
+    align-items: center;
+    border-bottom: 7px double rosybrown;
+    text-align: center;
+    color: blueviolet;
+    font-weight: 900;
+}
+.ludo {
+  display: grid;
+  grid-template-columns: repeat(14, 40px);
+  grid-template-rows: repeat(14, 40px);
+  gap: 0px;
+  margin: auto;
+  border: 2px black solid;
+  width: fit-content;
+}
+.normal {
+  width: 40px;
+  height: 40px;
+  border: 1px solid black;
+  box-sizing: border-box;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+.normal:hover {
+  background-color: #f5f5f5;
+  border-color: #333;
+}
+.block:hover {
+  background-color: rgba(0, 128, 0, 0.1); /* light green overlay */
+}
+
+.mid:hover {
+  background-color: #ddd;
+}
+
+.block {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 5px;
+  border: 1px solid green;
+}
+
+.inner {
+  width: 35px;
+  height: 35px;
+  border: 2px solid black;
+  margin: auto;
+  background-color: white;
+}
+.mid{
+  border: 2px black solid;
+    
+}
+.red{background-color: red;}
+.blue{background-color: blue;}
+.green{background-color: green;}
+.yel{background-color: yellow;}
+img{
+    
+    height: -webkit-fill-available;
+    width: -webkit-fill-available;
+}

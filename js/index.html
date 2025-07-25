@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Employee Manager</title>
+  <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+      crossorigin="anonymous"
+    />
+</head>
+<body><nav class="navbar navbar-expand-lg bg-primary fixed-top" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+  <h1>Employee Records</h1></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item"><button onclick="window.open('add.html')">Add Employee</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+<main>  <table>
+    <thead>
+      <tr>
+        <th>
+          ID
+        </th>
+        <th>
+          Name
+        </th>
+        <th>
+          Email
+        </th>
+        <th>
+          Phone
+        </th>
+        <th>
+  Role
+</th>
+
+        <th>Actions</th>
+      </tr>
+      <tr>
+        <th class="con">
+          <button onclick="sortTable('id')" title="Sort" >
+            🔽
+          </button><br/>
+          <input type="text" id="filter-id" placeholder="Filter ID">
+        </th>
+        <th class="con">
+          <button onclick="sortTable('name')" title="Sort">
+            🔽
+          </button><br/>
+          <input type="text" id="filter-name" placeholder="Filter Name">
+        </th>
+        <th class="con">
+          <button onclick="sortTable('email')" title="Sort">
+            🔽
+          </button><br/>
+          <input type="text" id="filter-email" placeholder="Filter Email">
+        </th>
+        <th class="con">
+          <button onclick="sortTable('phone')" title="Sort">
+            🔽
+          </button><br/>
+          <input type="text" id="filter-phone" placeholder="Filter Phone">
+        </th>
+        <th class="con">
+  <button onclick="sortTable('role')" title="Sort">
+    🔽
+  </button><br/>
+  <select id="filter-role">
+    <option value="">All</option>
+    <option value="Admin">Admin</option>
+    <option value="Manager">Manager</option>
+    <option value="Employee">Employee</option>
+  </select>
+</th>
+
+        <th>
+  <button onclick="clearFilters()" title="Sort">
+    Clear Filters
+  </button> </th>
+
+      </tr>
+    </thead>
+    <tbody id="tableBody">
+    </tbody>
+    <tbody id="tableBody"></tbody>
+<tfoot>
+  <tr id="quickAddRow">
+    <td><input type="text" id="quick-id" placeholder="Auto" disabled /></td>
+    <td><input type="text" id="quick-name" placeholder="Name" /></td>
+    <td><input type="email" id="quick-email" placeholder="Email" /></td>
+    <td><input type="text" id="quick-phone" placeholder="Phone" /></td>
+    <td>
+      <select id="quick-role">
+        <option value="">Role</option>
+        <option value="Admin">Admin</option>
+        <option value="Manager">Manager</option>
+        <option value="Employee">Employee</option>
+      </select>
+    </td>
+    <td>
+      <button onclick="addQuickEmployee()">Add</button>
+    </td>
+  </tr>
+</tfoot>
+
+  </table></main>
+
+
+  <div id="pagination" class="pagination"></div>
+
+  <script src="script.js"></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+    crossorigin="anonymous"
+  ></script>
+</body>
+</html>
