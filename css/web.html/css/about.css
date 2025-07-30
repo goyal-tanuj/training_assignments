@@ -1,0 +1,167 @@
+.about-main{
+    margin: 8vh auto;
+    display: flex;
+    height: calc(100vh - 18vh);
+    overflow: hidden;
+}
+
+.about-sider {
+  width: 20%;
+  overflow-y: auto;
+  background-color: #f9f9f9;
+  padding: 1rem;
+  box-sizing: border-box;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.about-grid {
+  overflow: hidden;
+  flex: 1;
+  background-color: #fff;
+  padding: 1rem;
+  box-sizing: border-box;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+}
+.pos{
+    position: relative;
+}
+.slide {
+    position: absolute;
+    flex-direction: column;
+    width: 100%;
+    height: fit-content;
+    color: rgb(52, 50, 50);
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+  }
+
+  .one {
+    animation-name: slide1;
+    position: absolute;
+  }
+  .two {
+    animation-name: slide2;
+    position: absolute;
+  }
+  .three {
+    animation-name: slide3;
+    position: absolute;
+  }
+
+.about-card-head {
+  margin: 0;
+  font-family: 'Dancing Script', cursive;
+  font-size: 2rem;
+  color: #333;
+}
+
+.slide p{
+  width: 80%;
+  margin-top: 2px;
+}
+ @keyframes slide1 {
+  0%      { opacity: 1; visibility: visible; }
+  33.33%  { opacity: 1; visibility: visible; }
+  33.34%  { opacity: 0; visibility: hidden; }
+  100%    { opacity: 0; visibility: hidden; }
+}
+
+@keyframes slide2 {
+  0%, 33.33%   { opacity: 0; visibility: hidden; }
+  33.34%       { opacity: 1; visibility: visible; }
+  66.66%       { opacity: 1; visibility: visible; }
+  66.67%       { opacity: 0; visibility: hidden; }
+  100%         { opacity: 0; visibility: hidden; }
+}
+
+@keyframes slide3 {
+  0%, 66.66%   { opacity: 0; visibility: hidden; }
+  66.67%       { opacity: 1; visibility: visible; }
+  100%        { opacity: 1; visibility: visible; }
+}
+
+
+.pretty-paragraph  {
+  list-style-type: square;
+  padding-left: 2rem;
+  background: linear-gradient(to right, #f3f4f6, #e0e7ff);
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 1rem auto;
+  padding: 1.5rem 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+.pretty-paragraph:hover {
+  color: #6c5ce7;
+  transform: translateX(5px);
+}
+ 
+.contact-container {
+  max-width: 600px;
+  margin: 8rem auto;
+  padding: 2rem;
+  background: linear-gradient(to right, #e0f7fa, #e1bee7);
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.contact-container h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form label {
+  margin-top: 1rem;
+  font-weight: bold;
+  color: #444;
+}
+
+.contact-form input,
+.contact-form textarea {
+  margin-top: 0.5rem;
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: border 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #6a1b9a;
+  outline: none;
+}
+
+.contact-form button {
+  margin-top: 1.5rem;
+  padding: 0.8rem;
+  background-color: #6a1b9a;
+  color: white;
+  font-size: 1rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #4a148c;
+}

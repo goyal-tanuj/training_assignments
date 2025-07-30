@@ -1,0 +1,130 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+nav {
+  display: flex;
+  background-color: black;
+  color: white;
+  height: 8vh;
+  min-width: 100%;
+  padding: 5px 3vw;
+  position: fixed;
+  justify-content: space-between;
+      z-index: 1000;
+      top: 0;
+}
+main{
+  margin-top: 8vh;
+  overflow-y: auto;
+}
+.logo {
+  display: flex;
+  width: 30vw;
+  font-size: xx-large;
+}
+.links {
+  width: 20vw;
+  font-size: x-large;
+}
+ul {
+  display: flex;
+  list-style: none;
+  justify-content: space-between;
+  position: relative;
+  height: 100%;
+  text-align: center;
+}
+li {
+  margin: auto;
+}
+.des-box {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 50px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  width: 80vw;
+  margin: 40px auto;
+  height: fit-content;
+  transition: transform 0.2s ease;
+}
+
+.des-box:hover {
+  transform: scale(1.02);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+.des-box p {
+  margin-bottom: 20px;
+  font-size: x-large;
+  font-family: "Dancing Script", cursive;
+}
+.intro {
+  width: fit-content;
+  margin: auto;
+  font-size: x-large;
+  background-color: #fefaf3;
+  border-radius: 12px;
+  padding: 50px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  align-items: center;
+  margin: 40px auto;
+  width: 90vw;
+}
+.intro div {
+  margin: auto;
+}
+.card-con {
+  height: fit-content;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 20px;
+}
+.card {
+  background-color: #f5eee0;
+  border-radius: 12px;
+  border: 1px solid #d8cfc2;
+  padding: 15px 2px 2px 2px;
+  width: 25vw;
+  height: 50vh;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.card:hover {
+   background: linear-gradient(135deg, #bd5491, #a3606a);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+.card img {
+  height: 30vh;
+  width: 90%;
+  margin: auto;
+  top: 0;
+  border-radius: 10%;
+}
+.img-des {
+  align-items: center;
+  text-align: center;
+  font-size: larger;
+  font-style: italic;
+}
+
+footer{
+  
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      z-index: 1000;
+  min-height: 5vh;
+  background: linear-gradient(45deg, black,rgb(65, 63, 63), #9a9696);
+  color: #fefaf3;
+
+}
+.intro h2{
+  width: fit-content;
+  margin: auto;
+}
