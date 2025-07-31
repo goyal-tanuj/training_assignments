@@ -1,8 +1,8 @@
-.about-main{
-    margin: 8vh auto;
-    display: flex;
-    height: calc(100vh - 18vh);
-    overflow: hidden;
+.about-main {
+  margin: 8vh auto;
+  display: flex;
+  height: calc(100vh - 18vh);
+  overflow: hidden;
 }
 
 .about-sider {
@@ -24,72 +24,109 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   overflow-y: auto;
 }
-.pos{
-    position: relative;
+.pos {
+  position: relative;
 }
 .slide {
-    position: absolute;
-    flex-direction: column;
-    width: 100%;
-    height: fit-content;
-    color: rgb(52, 50, 50);
-    font-size: 1rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    animation-duration: 20s;
-    animation-iteration-count: infinite;
-    animation-timing-function: ease-in-out;
-  }
+  position: absolute;
+  flex-direction: column;
+  width: 100%;
+  height: fit-content;
+  color: rgb(52, 50, 50);
+  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  animation-duration: 20s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
 
-  .one {
-    animation-name: slide1;
-    position: absolute;
-  }
-  .two {
-    animation-name: slide2;
-    position: absolute;
-  }
-  .three {
-    animation-name: slide3;
-    position: absolute;
-  }
+.one {
+  animation-name: slide1;
+  position: absolute;
+}
+.two {
+  animation-name: slide2;
+  position: absolute;
+}
+.three {
+  animation-name: slide3;
+  position: absolute;
+}
 
 .about-card-head {
   margin: 0;
-  font-family: 'Dancing Script', cursive;
+  font-family: "Dancing Script", cursive;
   font-size: 2rem;
   color: #333;
 }
 
-.slide p{
+.slide p {
   width: 80%;
   margin-top: 2px;
 }
- @keyframes slide1 {
-  0%      { opacity: 1; visibility: visible; }
-  33.33%  { opacity: 1; visibility: visible; }
-  33.34%  { opacity: 0; visibility: hidden; }
-  100%    { opacity: 0; visibility: hidden; }
+@keyframes slide1 {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+  33.33% {
+    opacity: 1;
+    visibility: visible;
+  }
+  33.34% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
 }
 
 @keyframes slide2 {
-  0%, 33.33%   { opacity: 0; visibility: hidden; }
-  33.34%       { opacity: 1; visibility: visible; }
-  66.66%       { opacity: 1; visibility: visible; }
-  66.67%       { opacity: 0; visibility: hidden; }
-  100%         { opacity: 0; visibility: hidden; }
+  0%,
+  33.33% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  33.34% {
+    opacity: 1;
+    visibility: visible;
+  }
+  66.66% {
+    opacity: 1;
+    visibility: visible;
+  }
+  66.67% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
 }
 
 @keyframes slide3 {
-  0%, 66.66%   { opacity: 0; visibility: hidden; }
-  66.67%       { opacity: 1; visibility: visible; }
-  100%        { opacity: 1; visibility: visible; }
+  0%,
+  66.66% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  66.67% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+  }
 }
 
-
-.pretty-paragraph  {
+.pretty-paragraph {
   list-style-type: square;
   padding-left: 2rem;
   background: linear-gradient(to right, #f3f4f6, #e0e7ff);
@@ -98,70 +135,227 @@
   max-width: 600px;
   margin: 1rem auto;
   padding: 1.5rem 2rem;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
-
 
 .pretty-paragraph:hover {
   color: #6c5ce7;
   transform: translateX(5px);
 }
- 
-.contact-container {
-  max-width: 600px;
-  margin: 8rem auto;
-  padding: 2rem;
-  background: linear-gradient(to right, #e0f7fa, #e1bee7);
-  border-radius: 15px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
 
-.contact-container h2 {
-  text-align: center;
-  margin-bottom: 1.5rem;
-  color: #333;
-}
-
-.contact-form {
+.contact-page {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to bottom right, #f9f9f9, #f3e5f5);
+  min-height: 100vh;
+  padding: 2rem 1rem;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
-.contact-form label {
-  margin-top: 1rem;
+.contact-header {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.contact-header h1 {
+  font-size: 2.5rem;
   font-weight: bold;
-  color: #444;
+  color: #6a1b9a;
+  margin-bottom: 0.5rem;
+}
+
+.contact-header p {
+  color: #555;
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: auto;
+}
+
+.contact-main {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-top: 2rem;
+  max-width: 1200px;
+  width: 100%;
+  flex-wrap: wrap; 
+}
+.contact-form-container {
+  flex: 1;
+  min-width: 320px;
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.contact-form-container:hover {
+  transform: translateY(-5px);
+}
+
+.contact-form-container h2 {
+  margin-bottom: 1.5rem;
+  color: #6a1b9a;
+  text-align: center;
 }
 
 .contact-form input,
 .contact-form textarea {
-  margin-top: 0.5rem;
+  width: 100%;
   padding: 0.8rem;
+  margin: 0.5rem 0;
   border: 1px solid #ccc;
-  border-radius: 10px;
+  border-radius: 8px;
   font-size: 1rem;
-  transition: border 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .contact-form input:focus,
 .contact-form textarea:focus {
   border-color: #6a1b9a;
   outline: none;
+  box-shadow: 0 0 8px rgba(106, 27, 154, 0.3);
+}
+.contact-form button {
+  width: 100%;
+  padding: 0.8rem;
+  margin-top: 1rem;
+  background: linear-gradient(45deg, #6a1b9a, #ab47bc);
+  border: none;
+  color: white;
+  font-weight: bold;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-.contact-form button {
-  margin-top: 1.5rem;
-  padding: 0.8rem;
-  background-color: #6a1b9a;
-  color: white;
+.contact-form button:hover {
+  background: linear-gradient(45deg, #4a148c, #8e24aa);
+}
+
+.contact-info {
+  flex: 1;
+  min-width: 280px;
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.contact-info h2 {
+  color: #6a1b9a;
+  margin-bottom: 1rem;
+}
+
+.contact-info p {
+  margin: 0.5rem 0;
+  color: #444;
   font-size: 1rem;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+}
+.social-links {
+  margin: 1rem 0;
+}
+
+.social-links a {
+  text-decoration: none;
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+  color: #6a1b9a;
+  transition: 0.3s;
+}
+
+.social-links a:hover {
+  color: #ab47bc;
+}
+
+.contact-info iframe {
+  border-radius: 8px;
+  margin-top: 1rem;
+  width: 100%;
+  height: 200px;
+}
+
+.contact-faq {
+  margin-top: 3rem;
+  text-align: center;
+  width: 100%;
+}
+
+.contact-faq h2 {
+  color: #6a1b9a;
+  margin-bottom: 1rem;
+}
+
+.contact-faq ul {
+  list-style: none;
+  padding: 0;
+}
+
+.contact-faq li {
+  background: white;
+  border-radius: 12px;
+  margin: 0.5rem auto;
+  max-width: 700px;
+  padding: 1rem;
+  color: #333;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 992px) {
+  .contact-main {
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 1000px) {
+  .contact-page{
+    margin:3rem 2rem;
+  }
+  .contact-main {
+    flex-direction: column;
+    align-items: center;
+  }
+  .contact-form-container,
+  .contact-info {
+    width: 95%;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-header h1 {
+    font-size: 2rem;
+  }
+  .contact-form-container,
+  .contact-info {
+    padding: 1.2rem;
+  }
 }
 
 .contact-form button:hover {
   background-color: #4a148c;
+}
+
+@media (max-width: 768px) {
+  .about-main {
+    display:block;
+    height:fit-content;
+    overflow: visible;
+  }
+  .about-sider{
+    width: 80%;
+    font-family: cursive;
+    margin: auto;
+  }
+  .about-grid{
+    overflow: visible;
+    overflow-y: visible;
+  }
+  .contact-container{
+        margin: 8rem 2rem;
+  }
 }
