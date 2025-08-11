@@ -1,0 +1,77 @@
+[
+  {
+    "id": 1,
+    "name": "Alice Johnson",
+    "email": "alice@example.com",
+    "phone": "1234567890",
+    "role": "Developer",
+    "address": {
+      "street": "123 Elm St",
+      "locality": "Green Park",
+      "country": "India",
+      "state": "UttarPradesh",
+      "city": "Lucknow",
+      "zip": "226001"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Bob Smith",
+    "email": "bob@example.com",
+    "phone": "9876543210",
+    "role": "Designer",
+    "address": {
+      "street": "456 Oak Ave",
+      "locality": "Sunset Blvd",
+      "country": "USA",
+      "state": "California",
+      "city": "Los Angeles",
+      "zip": "90001"
+    }
+  },
+  {
+    "id": 3,
+    "name": "Charlie Davis",
+    "email": "charlie@example.com",
+    "phone": "1112223333",
+    "role": "Manager",
+    "address": {
+      "street": "789 Pine Rd",
+      "locality": "Downtown",
+      "country": "India",
+      "state": "Maharashtra",
+      "city": "Mumbai",
+      "zip": "400001"
+    }
+  },
+  {
+    "id": 4,
+    "name": "Diana Prince",
+    "email": "diana@example.com",
+    "phone": "4445556666",
+    "role": "HR",
+    "address": {
+      "street": "321 Maple Lane",
+      "locality": "Gotham",
+      "country": "USA",
+      "state": "Texas",
+      "city": "Houston",
+      "zip": "77001"
+    }
+  },
+  {
+    "id": 5,
+    "name": "Ethan Hunt",
+    "email": "ethan@example.com",
+    "phone": "7778889999",
+    "role": "Analyst",
+    "address": {
+      "street": "147 Mission St",
+      "locality": "CIA HQ",
+      "country": "USA",
+      "state": "California",
+      "city": "San Francisco",
+      "zip": "94105"
+    }
+  }
+]
