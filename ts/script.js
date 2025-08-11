@@ -12,7 +12,6 @@ document.addEventListener("DOMContentLoaded", function () {
         employees = [];
     }
     filteredEmployees = employees.slice();
-    // Filter inputs
     var filterInputs = {
         id: document.getElementById("filter-id"),
         name: document.getElementById("filter-name"),

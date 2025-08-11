@@ -1,6 +1,5 @@
 var originalEmpId = null;
 document.addEventListener("DOMContentLoaded", function () {
-    // Sample data for dropdowns
     var countryOptions = ["India", "USA"];
     var stateOptions = {
         India: ["Delhi", "Maharashtra"],
@@ -12,14 +11,12 @@ document.addEventListener("DOMContentLoaded", function () {
         California: ["Los Angeles", "San Francisco"],
         Texas: ["Houston", "Dallas"]
     };
-    // Populate country dropdown
     var countrySelect = document.getElementById("emp-country");
     if (countrySelect) {
         countrySelect.innerHTML = countryOptions.map(function (c) {
             return '<option value="' + c + '">' + c + '</option>';
         }).join("");
     }
-    // Populate state and city dropdowns
     var stateSelect = document.getElementById("emp-state");
     var citySelect = document.getElementById("emp-city");
     function updateStateOptions(selectedState) {
@@ -50,7 +47,6 @@ document.addEventListener("DOMContentLoaded", function () {
     var empData = JSON.parse(sessionStorage.getItem("editEmployee") || "null");
     if (empData) {
         originalEmpId = empData.id;
-        // Set country first, then state, then city to ensure dropdowns are populated
         if (countrySelect)
             countrySelect.value = empData.address.country;
         updateStateOptions(empData.address.state);
