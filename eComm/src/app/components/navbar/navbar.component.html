@@ -1,0 +1,21 @@
+<header class="navbar">
+  <div class="brand"><a routerLink="login">Home</a></div>
+  <input type="checkbox" id="menu-toggle" />
+  <label for="menu-toggle" class="menu-icon">&#9776;</label>
+  <div class="search-container">
+    <input type="text" class="search-input" placeholder="Search..." />
+  </div>
+  <nav>
+    <ul class="nav-links">
+      <li><a routerLink="/products">Products</a></li>
+      <li><a routerLink="/user">About</a></li>
+      <li><a routerLink="/SignUp" (click)="Checkout()">Checkout</a></li>
+    </ul>
+  </nav>
+  <a routerLink="/cart">
+    <div class="cart-icon">
+      🛒
+      <span class="cart-count">{{ CartQnty$ | async }}</span>
+    </div>
+  </a>
+</header>

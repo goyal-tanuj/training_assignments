@@ -1,0 +1,14 @@
+<div class="product-grid">
+  <div class="product-card" *ngFor="let product of Products$ | async">
+    <img [src]="product.image" alt="{{ product.category }}" />
+    <h3>{{ product.name }}</h3>
+    <p class="price">$ {{ product.price }}</p>
+    <button (click)="addToCart(product.id)">
+      Add to Cart {{ product.inCartQt }}
+    </button>
+    <br /><br />
+    <button>
+      <a [routerLink]="['/product', product.id]">View Details</a>
+    </button>
+  </div>
+</div>

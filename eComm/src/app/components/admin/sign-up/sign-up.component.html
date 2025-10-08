@@ -1,0 +1,139 @@
+<h2 style="text-align: center">Please fill the form to enter</h2>
+
+<form *ngIf="form" [formGroup]="form" (ngSubmit)="onSubmit()" class="formStyle">
+  <ng-container *ngFor="let field of formData">
+    <ng-container *ngIf="field.type === signupformEnum.checkbox">
+      <label class="option">
+        <input
+          type="checkbox"
+          [formControlName]="field.name"
+          [class.input-error]="
+            form.get(field.name)?.invalid && form.get(field.name)?.touched
+          "
+        />
+        {{ field.label }}
+      </label>
+      <div
+        *ngIf="form.get(field.name)?.errors?.['requiredTrue'] && form.get(field.name)?.touched"
+        class="error-message"
+      >
+        Please Confirm
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="field.type === signupformEnum.radio">
+      <label>{{ field.label }}</label>
+      <div
+        class="option-group"
+        [class.error]="
+          form.get(field.name)?.invalid && form.get(field.name)?.touched
+        "
+      >
+        <div *ngFor="let option of field.options" class="option">
+          <input
+            type="radio"
+            [id]="field.name + '-' + option.value"
+            [formControlName]="field.name"
+            [value]="option.value"
+          />
+          <label [for]="field.name + '-' + option.value">{{
+            option.value
+          }}</label>
+        </div>
+      </div>
+      <ng-container *ngFor="let validator of field.validators">
+        <div
+          *ngIf="form.get(field.name)?.errors?.[validator.type] && form.get(field.name)?.touched"
+          class="error-message"
+        >
+          {{ validator.message }}
+        </div>
+      </ng-container>
+    </ng-container>
+
+    <ng-container *ngIf="field.type === signupformEnum.select">
+      <label [for]="field.name">{{ field.label }}</label>
+      <select
+        [id]="field.name"
+        [formControlName]="field.name"
+        [class.input-error]="
+          form.get(field.name)?.invalid && form.get(field.name)?.touched
+        "
+      >
+        <option value="" disabled>Select {{ field.label }}</option>
+        <option *ngFor="let option of field.options" [value]="option.value">
+          {{ option.value }}
+        </option>
+      </select>
+      <ng-container *ngFor="let validator of field.validators">
+        <div
+          *ngIf="form.get(field.name)?.errors?.[validator.type] && form.get(field.name)?.touched"
+          class="error-message"
+        >
+          {{ validator.message }}
+        </div>
+      </ng-container>
+    </ng-container>
+
+    <ng-container
+      *ngIf="
+        field.type === signupformEnum.text ||
+        field.type === signupformEnum.mail ||
+        field.type === signupformEnum.pwd
+      "
+    >
+      <label [for]="field.name">{{ field.label }}</label>
+      <input
+        [id]="field.name"
+        [type]="field.type"
+        [formControlName]="field.name"
+        [placeholder]="field.label"
+        [class.input-error]="
+          form.get(field.name)?.invalid && form.get(field.name)?.touched
+        "
+      />
+      <ng-container *ngFor="let validator of field.validators">
+        <div
+          *ngIf="form.get(field.name)?.errors?.[validator.type] && form.get(field.name)?.touched"
+          class="error-message"
+        >
+          {{ validator.message }}
+        </div>
+      </ng-container>
+    </ng-container>
+
+    <ng-container *ngIf="field.type === signupformEnum.section">
+      <fieldset
+        [formGroupName]="field.name"
+        [class.input-error]="
+          form.get([field.name])?.invalid && form.get([field.name])?.touched
+        "
+      >
+        <legend>{{ field.label }}</legend>
+        <ng-container *ngFor="let child of field.child">
+          <label>{{ child.label }}</label>
+          <input
+            [type]="child.type"
+            [formControlName]="child.name"
+            [placeholder]="child.label"
+            [class.input-error]="
+              form.get([field.name, child.name])?.invalid &&
+              form.get([field.name, child.name])?.touched
+            "
+          />
+          <ng-container *ngFor="let validator of child.validators">
+            <div
+              *ngIf="form.get(field.name)?.get(child.name)?.errors?.[validator.type] && form.get(field.name)?.get(child.name)?.touched"
+              class="error-message"
+            >
+              {{ validator.message }}
+            </div>
+          </ng-container>
+        </ng-container>
+      </fieldset>
+    </ng-container>
+    <br />
+  </ng-container>
+
+  <button type="submit" class="submit-btn">Submit</button>
+</form>

@@ -1,0 +1,23 @@
+<ul>
+  <ng-container *ngIf="(cartQuantity$ | async) === 0; else cartItem">
+    <li class="emptyCart">Your cart is empty.</li>
+  </ng-container>
+
+  <ng-template #cartItem>
+    <ng-container *ngFor="let product of (Products$ | async)">
+      <li *ngIf="product.inCartQt > 0">
+        <div class="cart-card">
+          <img [src]="product.image" alt="Product" />
+          <div class="cart-card-details">
+            <h4>{{ product.name }}</h4>
+            <p>{{ product.price | currency }}</p>
+          </div>
+          <div class="cart-card-actions">
+            <div class="cart-card-quantity">Qty: {{ product.inCartQt }}</div>
+            <button (click)="RemoveFromCart(product.id)">Remove</button>
+          </div>
+        </div>
+      </li>
+    </ng-container>
+  </ng-template>
+</ul>
