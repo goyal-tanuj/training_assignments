@@ -1,0 +1,12 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+@use 'buttons' as *;
+@use 'card' as *;
+@use 'media' as *;
+
+.container {
+  @include flex-center;
+  flex-wrap: wrap;
+  padding: 20px;
+  background: $gray;
+}

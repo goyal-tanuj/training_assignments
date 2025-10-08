@@ -1,0 +1,68 @@
+.btn-primary {
+  background: #4CAF50;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.btn-primary:hover {
+  background: rgb(60.5577689243, 139.4422310757, 63.7450199203);
+}
+
+.btn-secondary {
+  background: #333;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.btn-secondary:hover {
+  background: rgb(25.5, 25.5, 25.5);
+}
+
+.card {
+  width: 300px;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.card h3 {
+  font-family: "Arial", sans-serif;
+  margin-bottom: 10px;
+}
+.card p {
+  font-family: "Arial", sans-serif;
+  color: #333;
+}
+.card:hover {
+  background: rgb(234.4322709163, 246.0677290837, 234.9023904382);
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .card {
+    width: 100%;
+  }
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 20px;
+  background: #f4f4f4;
+}
+
+/*# sourceMappingURL=main.css.map */

@@ -157,7 +157,6 @@ function addQuickEmployee() {
     employees.push(newEmp);
     localStorage.setItem("employees", JSON.stringify(employees));
     applyFilters();
-    // Clear quick add fields
     document.getElementById("quick-name").value = "";
     document.getElementById("quick-email").value = "";
     document.getElementById("quick-phone").value = "";

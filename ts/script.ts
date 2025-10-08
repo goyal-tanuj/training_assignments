@@ -31,7 +31,6 @@ document.addEventListener("DOMContentLoaded", function() {
   }
   filteredEmployees = employees.slice();
 
-  // Filter inputs
   var filterInputs = {
     id: document.getElementById("filter-id") as HTMLInputElement,
     name: document.getElementById("filter-name") as HTMLInputElement,
@@ -205,7 +204,6 @@ function addQuickEmployee(): void {
   localStorage.setItem("employees", JSON.stringify(employees));
   applyFilters();
 
-  // Clear quick add fields
   (document.getElementById("quick-name") as HTMLInputElement).value = "";
   (document.getElementById("quick-email") as HTMLInputElement).value = "";
   (document.getElementById("quick-phone") as HTMLInputElement).value = "";

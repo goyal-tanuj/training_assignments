@@ -1,0 +1,28 @@
+@use 'variables' as *;
+@use 'sass:color';
+
+.btn-primary {
+  background: $primary-color;
+  color: $white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+
+  &:hover {
+    background: color.adjust($primary-color, $lightness: -10%);
+  }
+}
+
+.btn-secondary {
+  background: $secondary-color;
+  color: $white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+
+  &:hover {
+    background: color.adjust($secondary-color, $lightness: -10%);
+  }
+}
